@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  db:
+    # Build the Postgres database image using the Dockerfile in the current directory
+    build:
+      context: ./postgres-db
+      dockerfile: Dockerfile
+    # Expose port 5432 for Postgres
+    ports:
+      - "5432:5432"
+    # Mount a volume to persist data
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+
+  server:
+    # Build the Node.js app image using the Dockerfile in the current directory
+    build: ./server
+    # Set the working directory to /app/server
+    working_dir: /AggieReuse/server
+    # Expose port 5000 for the Node.js server
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: reuse
+      DB_USER: postgres
+      DB_PASSWORD: password
+      NODE_ENV: production
+    # Restart the container on failure
+    restart: always
+
+  client:
+    # Build the Node.js app image using the Dockerfile in the current directory
+    build: ./client
+    # Set the working directory to /app/client
+    working_dir: /AggieReuse/client
+    # Expose port 80 for the React.js server
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres-data:

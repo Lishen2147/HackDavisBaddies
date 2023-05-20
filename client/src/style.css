@@ -1,0 +1,253 @@
+:root{
+    /* --orange: #ffffff; */
+    --orange: #FF7710;
+    --black: #1C1B1A;
+    --body-color: #f9f9f9;
+    --formInput: #e3e3e3;
+    --background-color: #e17537;
+
+    --font: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+/* ######## NAVBAR ###### */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 2rem;
+    background-color: var(--body-color);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 0 0 5px 5px;
+}
+
+nav .nav-li{
+    margin: 0 2rem;
+    text-decoration: none;
+    color: var(--black);
+}
+
+nav .nav-li:hover {
+    color: var(--orange);
+}
+
+header .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1rem;
+}
+
+
+/* ######## MAIN ######## */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--body-color); 
+    margin: 5rem auto;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; 
+    transition: 0.6s;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 1rem;
+    text-align: left;
+}
+
+input, textarea, select {
+    height: 45px;
+    background-color: var(--formInput);
+    border: none;
+    border-radius: 0.2rem;
+    margin-top: 12px;
+    padding: 10px; 
+}
+
+.errorStyle {
+    box-shadow: red 0px 1px 3px 0px, red 0px 0px 0px 1px;
+}
+
+textarea {
+    min-height: 150px;
+    max-height: 150px;
+    min-width: 100%;
+    max-width: 100%;
+}   
+
+input:focus, textarea:focus, select:focus {
+    outline: 0;
+    box-shadow: #bd8200 0px 1px 3px 0px, #bd8200 0px 0px 0px 1px;
+}
+input:focus + .input-icon i {
+    color: #f0a500;
+}
+input:focus + .input-icon:after {
+    box-shadow: #bd8200 0px 1px 3px 0px, #bd8200 0px 0px 0px 1px;
+}
+
+.input {
+    margin: 1rem;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.short-input{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+.short-input > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 280px;
+}
+
+.sublabel {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.submit-btn {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #f07458;
+    color: var(--formInput);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    /* ##### NAV #### */
+    header .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        transition: 1s;
+        transform: translateY(-100vh);
+        margin: 0;
+
+        background-color: var(--body-color);
+    }
+
+    header .responsive_nav {
+        transform: none;
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    nav .nav-li{
+        font-size: 1.2rem;
+    }
+
+    /* ### Main ### */
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 350px;
+        margin: 0 auto;
+        margin-top: 3rem;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    form {
+        width: 100%;
+        max-width: 350px;
+        height: 70%;
+  
+        display: flex;
+        justify-content: space-around;
+  
+        margin: 0 auto;
+
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    
+    h4{
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+    
+
+    .background-svg {
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 60%;
+        font-size: small;
+        padding: 0.7rem;
+    }
+  }
