@@ -68,11 +68,6 @@ const LoginForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault() // won't refresh the page
 
-        const inputs = event.target.elements
-
-        const ucdRegex = /^[0-9]$/i;
-
-
         // Invalid Input Check
         let isFormValid = true
 

@@ -4,15 +4,23 @@ import '../styles/inventory.css'
 const Inventory = () => {
 
     const [formData, setFormData] = React.useState({
-        requestorEmail: '',
-        fullname: '',
-        emailaddress: ''
+        color: '',
+        brand: '',
+        size: '',
+        category: '',
+        notes: '',
+        gender: '',
+        availability: false
     })
 
-    const [errorBox, setErrorBox] = React.useState({
-        requestorEmail: false,
-        fullname: false,
-        emailaddress: false,
+    const [errorBox] = React.useState({
+        color: false,
+        brand: false,
+        size: false,
+        category: false,
+        notes: false,
+        gender: false,
+        availability: false
     })
     
     const handleChange = (event) => {
@@ -20,17 +28,8 @@ const Inventory = () => {
         const {name, value} = event.target 
         setFormData(prevFormData => ({
             ...prevFormData,
-            [name]: value
+            [name]: value,
         }))
-    }
-
-    const toggleErrorBox = (key, value) => {
-        setErrorBox(prevErrorBox => 
-            ({
-                ...prevErrorBox,
-                [key]: value
-            })
-        )
     }
 
     const sendFormData = async () => {
@@ -47,8 +46,11 @@ const Inventory = () => {
             console.log(data)
             if (response.status === 200) {
                 // Status code is 200 (OK)
-                if(data){
-                    window.alert(`${formData.fullname} is added to the list successfully.`);
+                if(Array.isArray(data) && data.length !== 0){
+                    window.alert(`Here is everything`);
+                }
+                else if (Array.isArray(data) && data.length === 0) {
+                    window.alert(`Sorry! Can't find what you are looking for`);
                 }
             } else {
                 window.alert(`Please Check the values are in right format.`);
@@ -61,51 +63,22 @@ const Inventory = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault() // won't refresh the page
-
-        const inputs = event.target.elements
-
-        const ucdRegex = /^[a-zA-Z0-9._%+-]+@(ucdavis\.edu)$/i;
-
-
-        // Invalid Input Check
-        let i = 0
-        let isFormValid = true
-
-        Object.keys(formData).forEach(key => {
-            
-            // Input is Empty
-            if(formData[key] === ""){
-                toggleErrorBox(key, true)
-                isFormValid = false
-                window.alert(`${key} field cannot be left empty. Please enter a valid input.`)
-            }
-
-            // Check if UCD Email Addr
-            else if(inputs[i].type === 'email'){
-                if(ucdRegex.test(formData[key])){
-                    toggleErrorBox(key, false)
-                }
-                else{
-                    toggleErrorBox(key, true)
-                    isFormValid = false
-                    window.alert(`Please enter a valid "UC Davis email address"`)
-                }
-            }
-
-            // No Input Error
-            else{
-                toggleErrorBox(key, false)
-            }
-
-            i++
-        })
         
-        isFormValid && sendFormData();
+        sendFormData();
     }
+
+    const handleCheckboxChange = (event) => {
+        const { checked } = event.target;
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          availability: checked ? !prevFormData.availability : false
+        }));
+      };
 
     const gridData = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
     return(
+        <form onSubmit={handleSubmit}>
         <div className='inventory-container'>
             <div className="inventory-content">
                 <div>
@@ -203,6 +176,16 @@ const Inventory = () => {
                                 <option value='Sets'>Sets</option>
                             </select>
                         </div>
+                        <div>
+                            <label>
+                                <input
+                                type="checkbox"
+                                checked={formData.availability}
+                                onChange={handleCheckboxChange}
+                                />
+                                Availability
+                            </label>
+                            </div>
                         <button className="submit-btn" type='submit'>Submit</button>
                 </div>
                 <div className="grid-container">
@@ -213,6 +196,7 @@ const Inventory = () => {
                 </div>
             </div>
         </div>
+        </form>
     )
 }
 

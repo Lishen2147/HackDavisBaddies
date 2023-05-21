@@ -36,35 +36,9 @@ router.post('/insert', async (req, res)=>{
             notes: notes,
             availability: true
         })
-        // const inventory = await reuseModel.create({
-        //     // staffBroughtIn: staffBroughtIn,
-        //     dateEdited: null,
-        //     staffEdited: null,
-        //     dateSold: null,
-        //     staffSold: null,
-        //     color: "Red",
-        //     brand: "test",
-        //     size: "L",
-        //     gender: "Womenswear",
-        //     category: "Tops",
-        //     notes: "test",
-        //     availability: true
-        // })
 
         console.log(inventory)
         return res.status(200).json(inventory)
-
-    } catch (error) {
-        console.error(error.message)
-        return res.status(500).send({success: false, error: error.message})
-    }
-})
-
-router.post('/test', async (req, res)=>{
-    try {
-        const result = await reuseModel.findAll()
-        console.log(result)
-        return res.status(200).json(result)
 
     } catch (error) {
         console.error(error.message)
@@ -81,5 +55,49 @@ router.post('/test', async (req, res)=>{
 // request an specific item given conditions such as color
 // can return the quantity of this similar
 // car return the availability of very specific item given request like the clothToken
+router.post('/select', async (req, res)=>{
+    try {
+        const {
+            color,
+            brand,
+            size,
+            gender,
+            category,
+            availability,
+        } = req.body;
 
-module.exports = router
+        const conditions = {};
+
+        if (color) {
+            conditions.color = color;
+        }
+        if (brand) {
+            conditions.brand = brand;
+        }
+        if (brand) {
+            conditions.size = size;
+        }
+        if (gender) {
+            conditions.gender = gender;
+        }
+        if (category) {
+            conditions.category = category;
+        }
+        if (availability) {
+            conditions.availability = availability;
+        }
+
+        const inventory = await reuseModel.findAll({
+            where: conditions
+          });
+
+        console.log(inventory);
+
+        res.status(200).json(inventory);
+    } catch (error) {
+        console.error('ERROR retrieving stocks: ', inventory);
+        res.status(500).json({error: 'ERROR retrieving stocks'});
+    }
+});
+
+module.exports = router;
