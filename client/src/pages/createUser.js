@@ -4,7 +4,7 @@ import '../styles/login.css'
 import Navbar from '../components/navbar-employee'
 
 
-const LoginForm = () => {
+const CreateUser = () => {
 
     const [formData, setFormData] = React.useState({
         empID: '',
@@ -70,6 +70,11 @@ const LoginForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault() // won't refresh the page
 
+        const inputs = event.target.elements
+
+        const ucdRegex = /^[0-9]$/i;
+
+
         // Invalid Input Check
         let isFormValid = true
 
@@ -95,7 +100,8 @@ const LoginForm = () => {
         <div>
             <Navbar />
         <form onSubmit={handleSubmit}>
-            <img src={imageSrc} alt="Image Description" style={{width: '50%', alignSelf: 'center'}}/>
+            {/* <img src={imageSrc} alt="Image Description" style={{width: '50%', alignSelf: 'center'}}/> */}
+            <h2 style={{textAlign: 'center'}}>Create User</h2>
             <div className='input' style={{ textAlign: 'center' }}>
                 <label htmlFor='empID'>Employee ID#:</label>
                 <input 
@@ -120,10 +126,10 @@ const LoginForm = () => {
                     className={errorBox.password ? 'errorStyle' : ''}
                 />
             </div>
-            <button className="submit-btn" type='submit'>Log in</button>
+            <button className="submit-btn" type='submit'>Create</button>
         </form>
         </div>
     )
 }
 
-export default LoginForm
+export default CreateUser

@@ -1,5 +1,7 @@
 import React from 'react'
 import '../styles/inventory.css'
+import Navbar from '../components/navbar-employee'
+
 
 const Inventory = () => {
 
@@ -78,7 +80,9 @@ const Inventory = () => {
     const gridData = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
     return(
-        <form onSubmit={handleSubmit}>
+        <div>
+        <Navbar />
+    <form onSubmit={handleSubmit}>
         <div className='inventory-container'>
             <div className="inventory-content">
                 <div>
@@ -197,6 +201,7 @@ const Inventory = () => {
             </div>
         </div>
         </form>
+        </div>
     )
 }
 

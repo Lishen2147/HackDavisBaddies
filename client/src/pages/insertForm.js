@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Navbar from '../components/navbar-employee'
+import  '../styles/insertForm.css'
 
 const NewItemForm = () => {
 
@@ -90,34 +92,53 @@ const NewItemForm = () => {
         console.log(formData);
     }
 
-    const [showImage , setShowImage] = useState(false);
-    
+    const [showImage, setShowImage] = useState(false);
+
     const handleButtonClick = () => {
         setShowImage(true);
     };
-    
-  
+
+    const [selectedImage, setSelectedImage] = useState(null);
 
     return (
+        <div>
+            <Navbar />
             <form onSubmit={handleSubmit}>
                 <div style={{ display: 'flex' }}>
                     <div className='form_left'>
                         <div>
-                            {showImage ? (
-                                <img src="/Users/thelemperor/git/HackDavisBaddies/client/src/img/horiz_transparent.png" alt="Image description" />
-                            ) : (
+                            {selectedImage ? (
+                                <div>
+                                <img
+                                    alt="not found"
+                                    width={"250px"}
+                                    src={URL.createObjectURL(selectedImage)}
+                                /> 
+                                <br />
+                                <button onClick={() => setSelectedImage(null)}>Remove</button>
+                                </div>
+                                ) : (
                                 <div className="image-box"></div>
                             )}
-                        </div>      
-                        <h5 class="upload-image">Upload Image</h5>                
-                        <button className="image_button" >Select File</button>
-                        <button className="image_button" >Take Image</button>
-
-
+                        </div>
+                        <h5 class="upload-image">Upload Image</h5>
+                        <label htmlFor="fileInput" className="file-input-label">
+                            Select File
+                            <input
+                                type="file"
+                                name="myImage"
+                                onChange={(event) => {
+                                    console.log(event.target.files[0]);
+                                    setSelectedImage(event.target.files[0]);
+                                }}
+                                id="fileInput"
+                            />
+                        </label>                        
+                        <button className="image_button" type="button">Take Image</button>
                     </div>
                     <div style={{ flex: 1 }}>
                         <div className='input'>
-                            <label htmlFor='color' style={{textAlign: 'center'}}>Color</label>
+                            <label htmlFor='color' style={{ textAlign: 'center' }}>Color</label>
                             <select
                                 id='color'
                                 name='color'
@@ -142,7 +163,7 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='brand' style={{textAlign: 'center'}}>Brand</label>
+                            <label htmlFor='brand' style={{ textAlign: 'center' }}>Brand</label>
                             <input
                                 id='brand'
                                 type='text'
@@ -154,7 +175,7 @@ const NewItemForm = () => {
                             />
                         </div>
                         <div className='input'>
-                            <label htmlFor='size' style={{textAlign: 'center'}}>Size</label>
+                            <label htmlFor='size' style={{ textAlign: 'center' }}>Size</label>
                             <select
                                 id='size'
                                 name='size'
@@ -173,7 +194,7 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='gender' style={{textAlign: 'center'}}> Gender </label>
+                            <label htmlFor='gender' style={{ textAlign: 'center' }}> Gender </label>
                             <select
                                 id='gender'
                                 name='gender'
@@ -188,7 +209,7 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='category' style={{textAlign: 'center'}}>Category</label>
+                            <label htmlFor='category' style={{ textAlign: 'center' }}>Category</label>
                             <select
                                 id='category'
                                 name='category'
@@ -208,7 +229,7 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='notes' style={{textAlign: 'center'}}> Notes </label>
+                            <label htmlFor='notes' style={{ textAlign: 'center' }}> Notes </label>
                             <input
                                 id='notes'
                                 type='text'
@@ -224,6 +245,7 @@ const NewItemForm = () => {
 
                 <button className="submit-btn" type='submit'>Log Item</button>
             </form>
+        </div>
     )
 }
 
