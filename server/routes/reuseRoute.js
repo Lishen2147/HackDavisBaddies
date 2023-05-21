@@ -36,9 +36,35 @@ router.post('/', async (req, res)=>{
             notes: notes,
             availability: true
         })
+        // const inventory = await reuseModel.create({
+        //     // staffBroughtIn: staffBroughtIn,
+        //     dateEdited: null,
+        //     staffEdited: null,
+        //     dateSold: null,
+        //     staffSold: null,
+        //     color: "Red",
+        //     brand: "test",
+        //     size: "L",
+        //     gender: "Womenswear",
+        //     category: "Tops",
+        //     notes: "test",
+        //     availability: true
+        // })
 
         console.log(inventory)
         return res.status(200).json(inventory)
+
+    } catch (error) {
+        console.error(error.message)
+        return res.status(500).send({success: false, error: error.message})
+    }
+})
+
+router.post('/test', async (req, res)=>{
+    try {
+        const result = await reuseModel.findAll()
+        console.log(result)
+        return res.status(200).json(result)
 
     } catch (error) {
         console.error(error.message)

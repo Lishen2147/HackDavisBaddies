@@ -1,0 +1,10 @@
+.LandingPage {
+  background-image: url('../img/gradient.png');
+  background-size: cover; /* Adjust the background-size property as needed */
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vw;
+  width: 100%;
+}
+
+
