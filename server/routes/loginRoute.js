@@ -7,12 +7,12 @@ const sequelize = require('sequelize')
 router.post('/create', async (req, res)=>{
 
     try {
-        const {emailaddress, password} = req.body;
+        const {empID, password} = req.body;
 
         console.log(loginHomePageModel)
 
         const staffTable = await loginHomePageModel.create({
-            staffID: emailaddress,
+            empID: empID,
             password: password
         })
 
@@ -31,15 +31,18 @@ router.post('/log-in', async (req, res)=>{
     try {
         const {empID, password} = req.body
 
-        // Select row (data) from role table to validate the fetched data if it's in the database 
         const ID = await loginHomePageModel.findOne({where: {empID}})
-        if (ID) { // if the logged in user is in the database, then it's not a new user, 
+        if (ID) { // if the log in is in the DB
+            if (ID.password == password) { // if password is correct
                 return res.status(200).json(ID)
+            }
+            else { // if password is not correct
+                return res.status(300).json(ID)
+            }
         }
-        else { // if the login is NOT in the database, then it's a new member that wants to join the team
-            return res.status(300).json(ID) // give it a different signal 
-        } // this signal will then redirect it to the "interest" form
-
+        else { // if the log in is NOT in the DB
+            return res.status(400).json(ID)
+        }
     } catch (error) {
         console.error(error.message);
         return res.status(500).json({error: error.message})
