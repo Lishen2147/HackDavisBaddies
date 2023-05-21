@@ -5,11 +5,13 @@ import '../styles/login.css'
 const LoginForm = () => {
 
     const [formData, setFormData] = React.useState({
-        empID: ''
+        empID: '',
+        password: ''
     })
 
     const [errorBox, setErrorBox] = React.useState({
         empID: false,
+        password: false
     })
     
     const handleChange = (event) => {
@@ -33,7 +35,7 @@ const LoginForm = () => {
     const sendFormData = async () => {
         console.log(formData)
         try {
-            const response = await fetch('http://localhost:5000/login-homepage', {
+            const response = await fetch('http://localhost:5000/login-homepage/log-in', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -45,13 +47,11 @@ const LoginForm = () => {
             if (response.status === 200) {
                 // Status code is 200 (OK)
                 if(data){
-                    // window.alert(`${formData.emailaddress} is in the database.`);
-                    window.location.replace("http://localhost:3000/access-form")
+                    window.location.replace("http://localhost:3000/insert-item")
                 }
             }
             else if (response.status === 300) {
-                // window.alert(`${formData.emailaddress} is NOT in the database.`);
-                window.location.replace("http://localhost:3000/member-detail")
+                window.alert(`Sorry! You are NOT in our team.`);
             } 
             else {
                 window.alert(`Please Check the values are in right format.`);
@@ -67,11 +67,10 @@ const LoginForm = () => {
 
         const inputs = event.target.elements
 
-        const ucdRegex = /^[a-zA-Z0-9._%+-]+@(ucdavis\.edu)$/i;
+        const ucdRegex = /^[0-9]$/i;
 
 
         // Invalid Input Check
-        let i = 0
         let isFormValid = true
 
         Object.keys(formData).forEach(key => {
@@ -83,24 +82,10 @@ const LoginForm = () => {
                 window.alert(`${key} field cannot be left empty. Please enter a valid input.`)
             }
 
-            // Check if UCD Email Addr
-            else if(inputs[i].type === 'email'){
-                if(ucdRegex.test(formData[key])){
-                    toggleErrorBox(key, false)
-                }
-                else{
-                    toggleErrorBox(key, true)
-                    isFormValid = false
-                    window.alert(`Please enter a valid "UC Davis email address"`)
-                }
-            }
-
             // No Input Error
             else{
                 toggleErrorBox(key, false)
             }
-
-            i++
         })
         
         isFormValid && sendFormData();

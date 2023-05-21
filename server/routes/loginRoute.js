@@ -29,10 +29,10 @@ router.post('/create', async (req, res)=>{
 router.post('/log-in', async (req, res)=>{
 
     try {
-        const {staffID, password} = req.body
+        const {empID, password} = req.body
 
         // Select row (data) from role table to validate the fetched data if it's in the database 
-        const ID = await loginHomePageModel.findOne({where: {staffID}})
+        const ID = await loginHomePageModel.findOne({where: {empID}})
         if (ID) { // if the logged in user is in the database, then it's not a new user, 
                 return res.status(200).json(ID)
         }

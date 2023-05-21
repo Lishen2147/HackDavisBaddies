@@ -2,7 +2,7 @@
 FROM node:18
 
 # Set the working directory to
-WORKDIR /ecocar_webapp/client
+WORKDIR /HackDavisBaddies/client
 
 # Copy everything to the container
 COPY . ./

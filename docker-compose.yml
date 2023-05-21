@@ -23,7 +23,7 @@ services:
     # Build the Node.js app image using the Dockerfile in the current directory
     build: ./server
     # Set the working directory to /app/server
-    working_dir: /AggieReuse/server
+    working_dir: /HackDavisBaddies/server
     # Expose port 5000 for the Node.js server
     ports:
       - "5000:5000"
@@ -41,7 +41,7 @@ services:
     # Build the Node.js app image using the Dockerfile in the current directory
     build: ./client
     # Set the working directory to /app/client
-    working_dir: /AggieReuse/client
+    working_dir: /HackDavisBaddies/client
     # Expose port 80 for the React.js server
     ports:
       - "3000:3000"

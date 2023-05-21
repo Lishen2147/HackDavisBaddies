@@ -18,7 +18,7 @@ const Navbar = () => {
             <nav ref={navRef}>
                 <Link className='nav-li' to='/' onClick={showNavbar}>Home</Link>
                 <Link className='nav-li' to='/access-form' onClick={showNavbar}>Shop</Link>
-                <Link className='nav-li' to='/member-detail' onClick={showNavbar}>Input Item</Link>
+                <Link className='nav-li' to='/insert-item' onClick={showNavbar}>Input Item</Link>
                 <Link className='nav-li' to='/login-form' onClick={showNavbar}>Login</Link>
                 <Link className='nav-li' to='/inventory' onClick={showNavbar}>Inventory</Link>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>

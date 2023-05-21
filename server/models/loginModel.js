@@ -4,16 +4,16 @@ const {DataTypes} = require('sequelize')
 const staff = sequelize.define(
     'staffTable', // Model Name
     {
-        staffID: {
+        empID: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: true,
           },
-          // password: {
-          //   type: DataTypes.STRING,
-          //   allowNull: false,
-          // },
+          password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
     }
 )
 

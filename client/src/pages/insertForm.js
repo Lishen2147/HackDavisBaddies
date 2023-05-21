@@ -49,7 +49,7 @@ const NewItemForm = () => {
     const sendFormData = async () => {
         console.log(formData)
         try {
-            const response = await fetch('http://localhost:5000/member-detail', {
+            const response = await fetch('http://localhost:5000/insert-into-inventory', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -61,7 +61,7 @@ const NewItemForm = () => {
             if (response.status === 200) {
                 // Status code is 200 (OK)
                 if (data) {
-                    window.alert(`${formData.firstName} is added to the list successfully.`);
+                    window.alert(`This item is added to the list successfully.`);
                 }
             } else {
                 window.alert(`Please Check the values are in right format.`);
@@ -77,20 +77,6 @@ const NewItemForm = () => {
         Object.keys(formData).forEach(key => {
             if (formData[key] === "") {
                 toggleErrorBoxTrue(key)
-            }
-            else if (key === 'emailaddress') {
-                if (formData[key].includes('@')) {
-                    toggleErrorBoxFalse(key)
-                } else {
-                    toggleErrorBoxTrue(key)
-                }
-            }
-            else if (key === 'phoneNumber') {
-                if (formData[key].length === 10) {
-                    toggleErrorBoxFalse(key)
-                } else {
-                    toggleErrorBoxTrue(key)
-                }
             }
             else {
                 toggleErrorBoxFalse(key)
