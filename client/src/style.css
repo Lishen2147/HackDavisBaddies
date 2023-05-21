@@ -92,7 +92,7 @@ form {
     flex-direction: column;
     justify-content: top;
     width: 100%;
-    padding: 1rem;
+    /* padding: 1rem; */
     text-align: left;
     background-image: url('./img/gradient.png');
     background-size: cover; /* Adjust the background-size property as needed */
