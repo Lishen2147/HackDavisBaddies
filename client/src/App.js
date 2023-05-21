@@ -8,6 +8,7 @@ import NewItemForm from './pages/insertForm'
 import LoginForm from './pages/loginForm'
 import LandingPage from './pages/landingPage'
 import Home from './pages/home'
+import CreateUser from './pages/createUser'
 import Navbar from './components/navbar-employee'
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/inventory" element={<Inventory />}/>
             <Route path="/login-form" element={<LoginForm />}/>
             <Route path="/landing-page" element={<LandingPage />}/>
+            <Route path="/create-user" element={<CreateUser />}/>
         </Routes>
         </>
     )

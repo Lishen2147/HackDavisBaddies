@@ -1,0 +1,55 @@
+.image_button{
+  display: flex; 
+
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #7C7CA5;
+  color: var(--formInput);
+  font-size: 0.7rem;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 20px;
+}
+
+.image-box {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+  border-radius: 10px;
+  border:5px solid #67C4BC;
+}
+
+.file-input-label {
+  display: flex;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #7C7CA5;
+  color: var(--formInput);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  height: 20px;
+  align-items: center;
+  justify-content: center;}
+
+.file-input-label:hover {
+  background-color: #e0e0e0;
+}
+
+.file-input-label input[type="file"] {
+  display: none;
+}

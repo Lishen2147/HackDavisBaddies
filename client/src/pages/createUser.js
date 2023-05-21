@@ -4,7 +4,7 @@ import '../styles/login.css'
 import Navbar from '../components/navbar-employee'
 
 
-const createUser = () => {
+const CreateUser = () => {
 
     const [formData, setFormData] = React.useState({
         empID: '',
@@ -100,7 +100,8 @@ const createUser = () => {
         <div>
             <Navbar />
         <form onSubmit={handleSubmit}>
-            <img src={imageSrc} alt="Image Description" style={{width: '50%', alignSelf: 'center'}}/>
+            {/* <img src={imageSrc} alt="Image Description" style={{width: '50%', alignSelf: 'center'}}/> */}
+            <h2 style={{textAlign: 'center'}}>Create User</h2>
             <div className='input' style={{ textAlign: 'center' }}>
                 <label htmlFor='empID'>Employee ID#:</label>
                 <input 
@@ -125,10 +126,10 @@ const createUser = () => {
                     className={errorBox.password ? 'errorStyle' : ''}
                 />
             </div>
-            <button className="submit-btn" type='submit'>Log in</button>
+            <button className="submit-btn" type='submit'>Create</button>
         </form>
         </div>
     )
 }
 
-export default createUser
+export default CreateUser
