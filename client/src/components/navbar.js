@@ -21,6 +21,7 @@ const Navbar = () => {
                 <Link className='nav-li' to='/insert-item' onClick={showNavbar}>Input Item</Link>
                 <Link className='nav-li' to='/login-form' onClick={showNavbar}>Login</Link>
                 <Link className='nav-li' to='/inventory' onClick={showNavbar}>Inventory</Link>
+                <Link className='nav-li' to='/landing-page' onClick={showNavbar}>Landing Page</Link>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes />
                 </button>

@@ -107,8 +107,10 @@ const Inventory = () => {
 
     return(
         <div className='inventory-container'>
-            <h4>Inventory</h4>
             <div className="inventory-content">
+                <div>
+                    
+                </div>
                 <div className="filter">
                 <div className='input'>
                             <label htmlFor='color'>Color</label>

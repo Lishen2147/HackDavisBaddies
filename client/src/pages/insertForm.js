@@ -8,7 +8,7 @@ const NewItemForm = () => {
         size: '',
         category: '',
         notes: '',
-        gender: ' ',
+        gender: ''
     })
 
     const [errorBox, setErrorBox] = React.useState({
@@ -17,7 +17,7 @@ const NewItemForm = () => {
         size: false,
         category: false,
         notes: false,
-        gender: false,
+        gender: false
     })
 
     const handleChange = (event) => {
@@ -74,6 +74,7 @@ const NewItemForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault() // won't refresh the page
+        // console.log( Object.keys(formData))
         Object.keys(formData).forEach(key => {
             if (formData[key] === "") {
                 toggleErrorBoxTrue(key)
@@ -109,8 +110,8 @@ const NewItemForm = () => {
                             )}
                         </div>      
                         <h5 class="upload-image">Upload Image</h5>                
-                        <button className="image_button" type='submit'>Select File</button>
-                        <button className="image_button" type='submit'>Take Image</button>
+                        <button className="image_button" >Select File</button>
+                        <button className="image_button" >Take Image</button>
 
 
                     </div>
