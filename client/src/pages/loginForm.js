@@ -3,11 +3,11 @@ import React from 'react'
 const LoginForm = () => {
 
     const [formData, setFormData] = React.useState({
-        emailaddress: ''
+        empID: ''
     })
 
     const [errorBox, setErrorBox] = React.useState({
-        emailaddress: false,
+        empID: false,
     })
     
     const handleChange = (event) => {
@@ -108,17 +108,29 @@ const LoginForm = () => {
         <div className='content'>
 
         <form onSubmit={handleSubmit}>
-            <h4>ECOCAR UC Davis Log In Page</h4>
+            <h4>Volunteer Login</h4>
             <div className='input'>
-                <label htmlFor='emailaddress'>Log in Email</label>
+                <label htmlFor='empID'>Volunteer ID</label>
                 <input 
-                    id='emailaddress'
-                    type='email'
-                    name='emailaddress'
-                    placeholder="Enter Email Address"
+                    id='empID'
+                    type='empID'
+                    name='empID'
+                    placeholder="Enter Volunteer ID"
                     onChange={handleChange}
-                    value={formData.emailaddress}
-                    className={errorBox.emailaddress ? 'errorStyle' : ''}
+                    value={formData.empID}
+                    className={errorBox.empID ? 'errorStyle' : ''}
+                />
+            </div>
+            <div className='input'>
+                <label htmlFor='password'>Password</label>
+                <input 
+                    id='password'
+                    type='password'
+                    name='password'
+                    placeholder="Enter Password"
+                    onChange={handleChange}
+                    value={formData.password}
+                    className={errorBox.password ? 'errorStyle' : ''}
                 />
             </div>
             <button className="submit-btn" type='submit'>Log in</button>

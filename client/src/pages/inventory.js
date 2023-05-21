@@ -1,55 +1,42 @@
-import React, { useState } from 'react'
+import React from 'react'
+import '../styles/inventory.css'
 
-const NewItemForm = () => {
+const Inventory = () => {
 
     const [formData, setFormData] = React.useState({
-        color: '',
-        brand: '',
-        size: '',
-        category: '',
-        notes: '',
-        gender: ' ',
+        requestorEmail: '',
+        fullname: '',
+        emailaddress: ''
     })
 
     const [errorBox, setErrorBox] = React.useState({
-        color: false,
-        brand: false,
-        size: false,
-        category: false,
-        notes: false,
-        gender: false,
+        requestorEmail: false,
+        fullname: false,
+        emailaddress: false,
     })
-
+    
     const handleChange = (event) => {
         // event.target is the tag/element itself
-        const { name, value } = event.target
+        const {name, value} = event.target 
         setFormData(prevFormData => ({
             ...prevFormData,
             [name]: value
         }))
     }
 
-    const toggleErrorBoxFalse = (key) => {
-        setErrorBox((prevErrorBox) => {
-            return ({
+    const toggleErrorBox = (key, value) => {
+        setErrorBox(prevErrorBox => 
+            ({
                 ...prevErrorBox,
-                [key]: false
+                [key]: value
             })
-        })
-    }
-    const toggleErrorBoxTrue = (key) => {
-        setErrorBox((prevErrorBox) => {
-            return ({
-                ...prevErrorBox,
-                [key]: true
-            })
-        })
+        )
     }
 
     const sendFormData = async () => {
         console.log(formData)
         try {
-            const response = await fetch('http://localhost:5000/member-detail', {
+            const response = await fetch('http://localhost:5000/access-requests', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -60,8 +47,8 @@ const NewItemForm = () => {
             console.log(data)
             if (response.status === 200) {
                 // Status code is 200 (OK)
-                if (data) {
-                    window.alert(`${formData.firstName} is added to the list successfully.`);
+                if(data){
+                    window.alert(`${formData.fullname} is added to the list successfully.`);
                 }
             } else {
                 window.alert(`Please Check the values are in right format.`);
@@ -74,66 +61,56 @@ const NewItemForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault() // won't refresh the page
+
+        const inputs = event.target.elements
+
+        const ucdRegex = /^[a-zA-Z0-9._%+-]+@(ucdavis\.edu)$/i;
+
+
+        // Invalid Input Check
+        let i = 0
+        let isFormValid = true
+
         Object.keys(formData).forEach(key => {
-            if (formData[key] === "") {
-                toggleErrorBoxTrue(key)
+            
+            // Input is Empty
+            if(formData[key] === ""){
+                toggleErrorBox(key, true)
+                isFormValid = false
+                window.alert(`${key} field cannot be left empty. Please enter a valid input.`)
             }
-            else if (key === 'emailaddress') {
-                if (formData[key].includes('@')) {
-                    toggleErrorBoxFalse(key)
-                } else {
-                    toggleErrorBoxTrue(key)
+
+            // Check if UCD Email Addr
+            else if(inputs[i].type === 'email'){
+                if(ucdRegex.test(formData[key])){
+                    toggleErrorBox(key, false)
+                }
+                else{
+                    toggleErrorBox(key, true)
+                    isFormValid = false
+                    window.alert(`Please enter a valid "UC Davis email address"`)
                 }
             }
-            else if (key === 'phoneNumber') {
-                if (formData[key].length === 10) {
-                    toggleErrorBoxFalse(key)
-                } else {
-                    toggleErrorBoxTrue(key)
-                }
-            }
-            else {
-                toggleErrorBoxFalse(key)
-            }
-        });
-        const isFormValid = Object.values(formData).every((value) => value !== "");
 
-        isFormValid ? sendFormData() : window.alert(`Please complete the application.`);
+            // No Input Error
+            else{
+                toggleErrorBox(key, false)
+            }
 
-        console.log(formData);
+            i++
+        })
+        
+        isFormValid && sendFormData();
     }
 
-    const [showImage , setShowImage] = useState(false);
-    
-    const handleButtonClick = () => {
-        setShowImage(true);
-    };
-    
-  
+    const gridData = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
-    return (
-
-        <div className='content'>
-            <form onSubmit={handleSubmit}>
-                <h4>Log a new item</h4>
-                <div style={{ display: 'flex' }}>
-                    <div className='form_left'>
-                        <h5>Upload Image</h5>
-                        <div>
-                            {showImage ? (
-                                <img src="/Users/thelemperor/git/HackDavisBaddies/client/src/img/horiz_transparent.png" alt="Image description" />
-                            ) : (
-                                <div className="image-box"></div>
-                            )}
-                            {/* <button onClick={handleButtonClick}>Show Image</button> */}
-                        </div>                      
-                        <button className="image_button" type='submit'>Select File</button>
-                        <button className="image_button" type='submit'>Take Image</button>
-
-
-                    </div>
-                    <div style={{ flex: 1 }}>
-                        <div className='input'>
+    return(
+        <div className='inventory-container'>
+            <h4>Inventory</h4>
+            <div className="inventory-content">
+                <div className="filter">
+                <div className='input'>
                             <label htmlFor='color'>Color</label>
                             <select
                                 id='color'
@@ -224,26 +201,16 @@ const NewItemForm = () => {
                                 <option value='sets'>Sets</option>
                             </select>
                         </div>
-                        <div className='input'>
-                            <label htmlFor='notes'> Notes </label>
-                            <input
-                                id='notes'
-                                type='text'
-                                name='notes'
-                                placeholder="Enter notes"
-                                onChange={handleChange}
-                                value={formData.notes}
-                                className={errorBox.notes & !formData.notes ? 'errorStyle' : ''}
-                            />
-                        </div>
-                    </div>
                 </div>
-
-                <button className="submit-btn" type='submit'>Submit Form</button>
-            </form>
-
+                <div className="grid-container">
+                    {gridData.map((item, index) => (
+                        <div key={index} className="grid-item">{item}</div>
+                        
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
 
-export default NewItemForm
+export default Inventory
