@@ -112,21 +112,17 @@ const NewItemForm = () => {
   
 
     return (
-
-        <div className='content'>
             <form onSubmit={handleSubmit}>
-                <h4>Log a new item</h4>
                 <div style={{ display: 'flex' }}>
                     <div className='form_left'>
-                        <h5>Upload Image</h5>
                         <div>
                             {showImage ? (
                                 <img src="/Users/thelemperor/git/HackDavisBaddies/client/src/img/horiz_transparent.png" alt="Image description" />
                             ) : (
                                 <div className="image-box"></div>
                             )}
-                            {/* <button onClick={handleButtonClick}>Show Image</button> */}
-                        </div>                      
+                        </div>      
+                        <h5 class="upload-image">Upload Image</h5>                
                         <button className="image_button" type='submit'>Select File</button>
                         <button className="image_button" type='submit'>Take Image</button>
 
@@ -134,7 +130,7 @@ const NewItemForm = () => {
                     </div>
                     <div style={{ flex: 1 }}>
                         <div className='input'>
-                            <label htmlFor='color'>Color</label>
+                            <label htmlFor='color' style={{textAlign: 'center'}}>Color</label>
                             <select
                                 id='color'
                                 name='color'
@@ -142,7 +138,7 @@ const NewItemForm = () => {
                                 value={formData.color}
                                 className={errorBox.color & !formData.color ? 'errorStyle' : ''}
                             >
-                                <option value=''>-- Select Color --</option>
+                                <option value=''></option>
                                 <option value="red">Red</option>
                                 <option value='blue'>Blue</option>
                                 <option value='green'>Green</option>
@@ -159,19 +155,19 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='brandName'>Brand</label>
+                            <label htmlFor='brandName' style={{textAlign: 'center'}}>Brand</label>
                             <input
                                 id='brandName'
                                 type='text'
                                 name='brandName'
-                                placeholder="Enter Brand Name"
+                                // placeholder="Enter Brand Name"
                                 onChange={handleChange}
                                 value={formData.lastName}
                                 className={errorBox.lastName & !formData.lastName ? 'errorStyle' : ''}
                             />
                         </div>
                         <div className='input'>
-                            <label htmlFor='size'>Size</label>
+                            <label htmlFor='size' style={{textAlign: 'center'}}>Size</label>
                             <select
                                 id='size'
                                 name='size'
@@ -179,7 +175,7 @@ const NewItemForm = () => {
                                 value={formData.size}
                                 className={errorBox.size & !formData.size ? 'errorStyle' : ''}
                             >
-                                <option value=''>-- Select Size --</option>
+                                <option value=''></option>
                                 <option value="XXS">XXS</option>
                                 <option value='XS'>XS</option>
                                 <option value='S'>S</option>
@@ -190,7 +186,7 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='gender'> Gender </label>
+                            <label htmlFor='gender' style={{textAlign: 'center'}}> Gender </label>
                             <select
                                 id='gender'
                                 name='gender'
@@ -198,14 +194,14 @@ const NewItemForm = () => {
                                 value={formData.gender}
                                 className={errorBox.gender & !formData.gender ? 'errorStyle' : ''}
                             >
-                                <option value=''>-- Select Gender --</option>
+                                <option value=''></option>
                                 <option value="menswear">Menswear</option>
                                 <option value='womenswear'>Womenswear</option>
                                 <option value='neutral'>Neutral</option>
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='category'>Category</label>
+                            <label htmlFor='category' style={{textAlign: 'center'}}>Category</label>
                             <select
                                 id='category'
                                 name='category'
@@ -213,7 +209,7 @@ const NewItemForm = () => {
                                 value={formData.category}
                                 className={errorBox.category & !formData.category ? 'errorStyle' : ''}
                             >
-                                <option value=''>-- Select Category --</option>
+                                <option value=''></option>
                                 <option value="tops">Tops</option>
                                 <option value='bottoms'>Bottoms</option>
                                 <option value='dresses'>Dresses</option>
@@ -225,12 +221,12 @@ const NewItemForm = () => {
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='notes'> Notes </label>
+                            <label htmlFor='notes' style={{textAlign: 'center'}}> Notes </label>
                             <input
                                 id='notes'
                                 type='text'
                                 name='notes'
-                                placeholder="Enter notes"
+                                // placeholder="Enter notes"
                                 onChange={handleChange}
                                 value={formData.notes}
                                 className={errorBox.notes & !formData.notes ? 'errorStyle' : ''}
@@ -239,10 +235,8 @@ const NewItemForm = () => {
                     </div>
                 </div>
 
-                <button className="submit-btn" type='submit'>Submit Form</button>
+                <button className="submit-btn" type='submit'>Log Item</button>
             </form>
-
-        </div>
     )
 }
 

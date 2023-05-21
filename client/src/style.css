@@ -3,9 +3,8 @@
     --orange: #FF7710;
     --black: #1C1B1A;
     --body-color: #f9f9f9;
-    --formInput: #e3e3e3;
-    /* --background-color: #e17537; */
-
+    --formInput: white;
+    --background-color: white;
     --font: 'Inter', sans-serif;
 }
 
@@ -25,10 +24,10 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 80px;
     padding: 0 2rem;
-    background-color: var(--body-color);
+    /* background-color: var(--body-color); */
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     border-radius: 0 0 5px 5px;
 }
@@ -37,6 +36,9 @@ nav .nav-li{
     margin: 0 2rem;
     text-decoration: none;
     color: white;
+    margin-left: auto;
+    font-weight: bold;
+
     /* font-family: 'sans'; */
 }
 
@@ -62,10 +64,11 @@ header .nav-btn {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: var(--body-color); 
+    /* background-color: var(--body-color);  */
     margin: 5rem auto;
-    width: 80%;
-    max-width: 700px;
+    width: 100%;
+    /* max-width: 700px; */
+    height: 100%;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; 
     transition: 0.6s;
 }
@@ -103,6 +106,8 @@ header .nav-btn {
     width: 200px;
     height: 200px;
     background-color: lightgray;
+    border-radius: 10px;
+    border:5px solid #67C4BC;
   }
 
 
@@ -114,11 +119,18 @@ h4 {
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     width: 100%;
-    max-width: 700px;
     padding: 1rem;
     text-align: left;
+    background-image: url('./img/gradient.png');
+    background-size: cover; /* Adjust the background-size property as needed */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    color: #52527B;
+    font-weight: bold;
+    min-height: 100vh;
 }
 
 input, textarea, select {
@@ -180,7 +192,7 @@ input:focus + .input-icon:after {
 }
 
 .submit-btn {
-    width: 40%;
+    width: 25%;
     margin: 0 auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -188,7 +200,7 @@ input:focus + .input-icon:after {
     padding: 1rem;
     border-radius: 10px;
     border: none;
-    background-color: #f07458;
+    background-color: #67C4BC;
     color: var(--formInput);
     font-size: 1rem;
     font-weight: 700;
@@ -265,11 +277,10 @@ input:focus + .input-icon:after {
 
     }
 
-    body {
+  body {
       display: flex;
       flex-direction: column;
     }
-
     
     h4{
         font-size: 1rem;

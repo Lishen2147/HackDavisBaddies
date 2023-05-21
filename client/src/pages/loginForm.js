@@ -1,4 +1,6 @@
 import React from 'react'
+import imageSrc from '../img/login_flag.png'
+import '../styles/login.css'
 
 const LoginForm = () => {
 
@@ -105,29 +107,27 @@ const LoginForm = () => {
     }
 
     return(
-        <div className='content'>
-
         <form onSubmit={handleSubmit}>
-            <h4>Volunteer Login</h4>
-            <div className='input'>
-                <label htmlFor='empID'>Volunteer ID</label>
+            <img src={imageSrc} alt="Image Description" style={{width: '50%', alignSelf: 'center'}}/>
+            <div className='input' style={{ textAlign: 'center' }}>
+                <label htmlFor='empID'>Employee ID#:</label>
                 <input 
                     id='empID'
                     type='empID'
                     name='empID'
-                    placeholder="Enter Volunteer ID"
+                    // placeholder="Enter Volunteer ID"
                     onChange={handleChange}
                     value={formData.empID}
                     className={errorBox.empID ? 'errorStyle' : ''}
                 />
             </div>
-            <div className='input'>
-                <label htmlFor='password'>Password</label>
+            <div className='input' style={{ textAlign: 'center' }}>
+                <label htmlFor='password'>Password:</label>
                 <input 
                     id='password'
                     type='password'
                     name='password'
-                    placeholder="Enter Password"
+                    // placeholder="Enter Password"
                     onChange={handleChange}
                     value={formData.password}
                     className={errorBox.password ? 'errorStyle' : ''}
@@ -135,7 +135,6 @@ const LoginForm = () => {
             </div>
             <button className="submit-btn" type='submit'>Log in</button>
         </form>
-        </div>
     )
 }
 
