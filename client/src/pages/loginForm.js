@@ -1,7 +1,7 @@
 import React from 'react'
 import imageSrc from '../img/login_flag.png'
 import '../styles/login.css'
-import Navbar from '../components/navbar-employee'
+import Navbar from '../components/navbar'
 
 
 const LoginForm = () => {

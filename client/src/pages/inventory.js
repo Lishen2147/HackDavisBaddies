@@ -45,6 +45,7 @@ const Inventory = () => {
                     'Content-Type': 'application/json'
                 }
             });
+            setGridData()
             const data = await response.json();
             console.log(data)
             if (response.status === 200) {
@@ -235,17 +236,19 @@ const Inventory = () => {
                             </div>
                             <button className="submit-btn" type='submit' style={{ width: "80%", margin: '16px' }}>Submit</button>
                         </div>
+                        {gridData && gridData.length > 0 && (
                         <div className="grid-container">
-                            {gridData.map((item, index) => (
-                                <div>
-                                    <div key={index} className="grid-item">
-                                    </div>
-                                    <div className="id-container">
-                                        <p>id: {item.clothtoken} </p>
-                                    </div>
+                        {gridData.map((item, index) => (
+                            <div>
+                                <div key={index} className="grid-item">
                                 </div>
-                            ))}
-                        </div>
+                                <div className="id-container">
+                                    <p>id: {item.clothtoken} </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                        )}
                     </div>
                 </div>
             </form>

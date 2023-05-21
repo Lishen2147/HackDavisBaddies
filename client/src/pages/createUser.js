@@ -139,11 +139,6 @@ const CreateUser = () => {
                 />
             </div>
             <button className="submit-btn" type='submit'>Create</button>
-            <div>
-                <Link to="/login-form">
-                    <button>let's log in now!</button>
-                </Link>
-            </div>
         </form>
         </div>
     )
