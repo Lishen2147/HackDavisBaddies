@@ -7,7 +7,7 @@ const { col } = require('../database')
 // Registering new supplies to the database table
 // Retrieve new data from frontend
 // Insert this new data into the table
-router.post('/', async (req, res)=>{
+router.post('/insert', async (req, res)=>{
     try {
         const {
             // staffBroughtIn,

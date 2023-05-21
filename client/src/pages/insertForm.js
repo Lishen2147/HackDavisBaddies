@@ -49,7 +49,7 @@ const NewItemForm = () => {
     const sendFormData = async () => {
         console.log(formData)
         try {
-            const response = await fetch('http://localhost:5000/insert-into-inventory', {
+            const response = await fetch('http://localhost:5000/inventory/insert', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {

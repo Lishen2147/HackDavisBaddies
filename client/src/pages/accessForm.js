@@ -104,47 +104,6 @@ const AccessForm = () => {
 
     return(
         <div className='content'>
-
-        {/* <form onSubmit={handleSubmit}>
-            <h4>ECOCAR UC Davis Access Request Form</h4>
-            <div className='input'>
-                <label htmlFor='requestorEmail'>Requestor Email</label>
-                <input 
-                    id='requestorEmail'
-                    type='email'
-                    name='requestorEmail'
-                    placeholder='Enter Your Email Address'
-                    onChange={handleChange}
-                    value={formData.requestorEmail}
-                    className={errorBox.requestorEmail ? 'errorStyle' : ''}
-                />
-            </div>
-            <div className='input'>
-                <label htmlFor='fullname'>Full Name</label>
-                <input 
-                    id='fullname'
-                    type='text'
-                    name='fullname'
-                    placeholder="Enter New Member's Full Name"
-                    onChange={handleChange}
-                    value={formData.fullname}
-                    className={errorBox.fullname ? 'errorStyle' : ''}
-                />
-            </div>
-            <div className='input'>
-                <label htmlFor='emailaddress'>New Member Email</label>
-                <input 
-                    id='emailaddress'
-                    type='email'
-                    name='emailaddress'
-                    placeholder="Enter new member's Email Address"
-                    onChange={handleChange}
-                    value={formData.emailaddress}
-                    className={errorBox.emailaddress ? 'errorStyle' : ''}
-                />
-            </div>
-            <button className="submit-btn" type='submit'>Submit Form</button>
-        </form> */}
         <h1>in progress</h1>
         </div>
     )
