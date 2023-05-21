@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../components/navbar'
 
 const AccessForm = () => {
 
@@ -103,8 +104,11 @@ const AccessForm = () => {
     }
 
     return(
-        <div className='content'>
-        <h1>in progress</h1>
+        <div>
+            <Navbar/>
+            <div className='content'>
+            <h1>in progress</h1>
+            </div>
         </div>
     )
 }

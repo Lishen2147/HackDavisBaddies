@@ -4,7 +4,7 @@ import '../styles/login.css'
 import Navbar from '../components/navbar-employee'
 
 
-const LoginForm = () => {
+const createUser = () => {
 
     const [formData, setFormData] = React.useState({
         empID: '',
@@ -131,4 +131,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm
+export default createUser

@@ -8,14 +8,14 @@ import NewItemForm from './pages/insertForm'
 import LoginForm from './pages/loginForm'
 import LandingPage from './pages/landingPage'
 import Home from './pages/home'
-import Navbar from './components/navbar'
+import Navbar from './components/navbar-employee'
 
 const App = () => {
 
 
     return(
         <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/access-form" element={<AccessForm />}/>
