@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link className='nav-li' to='/' onClick={showNavbar}><h3><img src={logo} alt="AggieReuse LOGO" style={{ width: '100px' }} /></h3></Link>
             <nav ref={navRef}>
                 {/* <Link className='nav-li' to='/' onClick={showNavbar}>Home</Link> */}
-                <Link className='nav-li' to='/access-form' onClick={showNavbar}>Shop</Link>
+                <Link className='nav-li' to='/shop-form' onClick={showNavbar}>Shop</Link>
                 {/* <Link className='nav-li' to='/insert-item' onClick={showNavbar}>Input Item</Link> */}
                 <Link className='nav-li' to='/login-form' onClick={showNavbar}>Volunteer Portal</Link>
                 {/* <Link className='nav-li' to='/inventory' onClick={showNavbar}>Inventory</Link> */}

@@ -47,9 +47,8 @@ const LoginForm = () => {
             const data = await response.json();
             console.log(data)
             if (response.status === 200) {
-                // Status code is 200 (OK)
                 if(data){
-                    window.location.replace("http://localhost:3000/insert-item") // redirect to "menu"
+                    window.location.replace("http://localhost:3000/landing-page") // redirect to "menu"
                 }
             }
             else if (response.status === 300) {
@@ -70,19 +69,32 @@ const LoginForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault() // won't refresh the page
 
-        // Invalid Input Check
+        const inputs = event.target.elements
+
+        const intOnly = /^[0-9]$/i;
+
+        let i = 0
         let isFormValid = true
 
         Object.keys(formData).forEach(key => {
             
-            // Input is Empty
             if(formData[key] === ""){
                 toggleErrorBox(key, true)
                 isFormValid = false
                 window.alert(`${key} field cannot be left empty. Please enter a valid input.`)
             }
 
-            // No Input Error
+            else if(inputs[i].type === 'empID'){
+                if(intOnly.test(formData[key])){
+                    toggleErrorBox(key, false)
+                }
+                else{
+                    toggleErrorBox(key, true)
+                    isFormValid = false
+                    window.alert(`Integer Only`)
+                }
+            }
+
             else{
                 toggleErrorBox(key, false)
             }
@@ -95,14 +107,13 @@ const LoginForm = () => {
         <div>
             <Navbar />
         <form onSubmit={handleSubmit}>
-            <img src={imageSrc} alt="Image Description" style={{width: '50%', alignSelf: 'center'}}/>
+            <img src={imageSrc} alt="Description" style={{width: '50%', alignSelf: 'center'}}/>
             <div className='input' style={{ textAlign: 'center' }}>
                 <label htmlFor='empID'>Employee ID#:</label>
                 <input 
                     id='empID'
                     type='empID'
                     name='empID'
-                    // placeholder="Enter Volunteer ID"
                     onChange={handleChange}
                     value={formData.empID}
                     className={errorBox.empID ? 'errorStyle' : ''}
@@ -114,7 +125,6 @@ const LoginForm = () => {
                     id='password'
                     type='password'
                     name='password'
-                    // placeholder="Enter Password"
                     onChange={handleChange}
                     value={formData.password}
                     className={errorBox.password ? 'errorStyle' : ''}

@@ -46,15 +46,7 @@ router.post('/insert', async (req, res)=>{
     }
 })
 
-// just "sold" an item: update dateSold & availability
-// router.post('/sold/clothToken', async (req, res)=>{
-//     try {
-//         const {clothToken} = req.body;
-//     }
-// })
-// request an specific item given conditions such as color
-// can return the quantity of this similar
-// car return the availability of very specific item given request like the clothToken
+// for looking through the inventory
 router.post('/select', async (req, res)=>{
     try {
         const {

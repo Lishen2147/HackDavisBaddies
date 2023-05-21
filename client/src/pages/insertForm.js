@@ -92,12 +92,6 @@ const NewItemForm = () => {
         console.log(formData);
     }
 
-    const [showImage, setShowImage] = useState(false);
-
-    const handleButtonClick = () => {
-        setShowImage(true);
-    };
-
     const [selectedImage, setSelectedImage] = useState(null);
 
     return (

@@ -1,7 +1,8 @@
 import React from 'react'
-import imageSrc from '../img/login_flag.png'
+// import imageSrc from '../img/login_flag.png'
 import '../styles/login.css'
 import Navbar from '../components/navbar-employee'
+import { Link } from 'react-router-dom';
 
 
 const CreateUser = () => {
@@ -37,7 +38,7 @@ const CreateUser = () => {
     const sendFormData = async () => {
         console.log(formData)
         try {
-            const response = await fetch('http://localhost:5000/login-homepage/log-in', {
+            const response = await fetch('http://localhost:5000/login-homepage/create', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -49,7 +50,7 @@ const CreateUser = () => {
             if (response.status === 200) {
                 // Status code is 200 (OK)
                 if(data){
-                    window.location.replace("http://localhost:3000/insert-item") // redirect to "menu"
+                    window.alert(`User Created`)
                 }
             }
             else if (response.status === 300) {
@@ -72,10 +73,10 @@ const CreateUser = () => {
 
         const inputs = event.target.elements
 
-        const ucdRegex = /^[0-9]$/i;
-
-
+        const intOnly = /^[0-9]$/i;
+        
         // Invalid Input Check
+        let i = 0
         let isFormValid = true
 
         Object.keys(formData).forEach(key => {
@@ -85,6 +86,17 @@ const CreateUser = () => {
                 toggleErrorBox(key, true)
                 isFormValid = false
                 window.alert(`${key} field cannot be left empty. Please enter a valid input.`)
+            }
+
+            else if(inputs[i].type === 'empID'){
+                if(intOnly.test(formData[key])){
+                    toggleErrorBox(key, false)
+                }
+                else{
+                    toggleErrorBox(key, true)
+                    isFormValid = false
+                    window.alert(`Integer Only`)
+                }
             }
 
             // No Input Error
@@ -127,6 +139,11 @@ const CreateUser = () => {
                 />
             </div>
             <button className="submit-btn" type='submit'>Create</button>
+            <div>
+                <Link to="/login-form">
+                    <button>let's log in now!</button>
+                </Link>
+            </div>
         </form>
         </div>
     )

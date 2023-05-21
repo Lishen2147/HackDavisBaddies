@@ -6,13 +6,10 @@ const staff = sequelize.define(
     {
         empID: {
             type: DataTypes.INTEGER,
-            autoIncrement: true,
             primaryKey: true,
-            allowNull: true,
           },
           password: {
             type: DataTypes.STRING,
-            allowNull: false,
           },
     }
 )

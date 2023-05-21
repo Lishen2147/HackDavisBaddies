@@ -1,13 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/landing.css'
-import imageSrc from '../img/Clouds.png'
+// import imageSrc from '../img/Clouds.png'
 import Navbar from '../components/navbar-employee'
 
-
-
 const LandingPage = () => {
-
 
     return(
         <div>        

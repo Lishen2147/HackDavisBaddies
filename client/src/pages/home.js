@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Navbar />
       <div>
-        <img src={imageSrc} alt="Image Description" class="background" />
+        <img src={imageSrc} alt="Description" class="background" />
       </div>
     </div>
   )
