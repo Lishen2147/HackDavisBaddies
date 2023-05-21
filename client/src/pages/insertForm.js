@@ -125,27 +125,27 @@ const NewItemForm = () => {
                                 className={errorBox.color & !formData.color ? 'errorStyle' : ''}
                             >
                                 <option value=''></option>
-                                <option value="red">Red</option>
-                                <option value='blue'>Blue</option>
-                                <option value='green'>Green</option>
-                                <option value='yellow'>Yellow</option>
-                                <option value='orange'>Orange</option>
-                                <option value='purple'>Purple</option>
-                                <option value='pink'>Pink</option>
-                                <option value='cyan'>Cyan</option>
-                                <option value='magenta'>Magenta</option>
-                                <option value='teal'>Teal</option>
-                                <option value='black'>Black</option>
-                                <option value='white'>White</option>
-                                <option value='gray'>Gray</option>
+                                <option value="Red">Red</option>
+                                <option value='Blue'>Blue</option>
+                                <option value='Green'>Green</option>
+                                <option value='Yellow'>Yellow</option>
+                                <option value='Orange'>Orange</option>
+                                <option value='Purple'>Purple</option>
+                                <option value='Pink'>Pink</option>
+                                <option value='Cyan'>Cyan</option>
+                                <option value='Magenta'>Magenta</option>
+                                <option value='Teal'>Teal</option>
+                                <option value='Black'>Black</option>
+                                <option value='White'>White</option>
+                                <option value='Gray'>Gray</option>
                             </select>
                         </div>
                         <div className='input'>
-                            <label htmlFor='brandName' style={{textAlign: 'center'}}>Brand</label>
+                            <label htmlFor='brand' style={{textAlign: 'center'}}>Brand</label>
                             <input
-                                id='brandName'
+                                id='brand'
                                 type='text'
-                                name='brandName'
+                                name='brand'
                                 // placeholder="Enter Brand Name"
                                 onChange={handleChange}
                                 value={formData.lastName}
@@ -181,9 +181,9 @@ const NewItemForm = () => {
                                 className={errorBox.gender & !formData.gender ? 'errorStyle' : ''}
                             >
                                 <option value=''></option>
-                                <option value="menswear">Menswear</option>
-                                <option value='womenswear'>Womenswear</option>
-                                <option value='neutral'>Neutral</option>
+                                <option value="Menswear">Menswear</option>
+                                <option value='Womenswear'>Womenswear</option>
+                                <option value='Neutral'>Neutral</option>
                             </select>
                         </div>
                         <div className='input'>
@@ -196,14 +196,14 @@ const NewItemForm = () => {
                                 className={errorBox.category & !formData.category ? 'errorStyle' : ''}
                             >
                                 <option value=''></option>
-                                <option value="tops">Tops</option>
-                                <option value='bottoms'>Bottoms</option>
-                                <option value='dresses'>Dresses</option>
-                                <option value='lingerie'>Lingerie</option>
-                                <option value='outerwear'>Outerwear</option>
-                                <option value='accessories'>Accessories</option>
-                                <option value='shoes'>Shoes</option>
-                                <option value='sets'>Sets</option>
+                                <option value="Tops">Tops</option>
+                                <option value='Bottoms'>Bottoms</option>
+                                <option value='Dresses'>Dresses</option>
+                                <option value='Lingerie'>Lingerie</option>
+                                <option value='Outerwear'>Outerwear</option>
+                                <option value='Accessories'>Accessories</option>
+                                <option value='Shoes'>Shoes</option>
+                                <option value='Sets'>Sets</option>
                             </select>
                         </div>
                         <div className='input'>

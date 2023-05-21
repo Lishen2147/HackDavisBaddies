@@ -47,10 +47,13 @@ const LoginForm = () => {
             if (response.status === 200) {
                 // Status code is 200 (OK)
                 if(data){
-                    window.location.replace("http://localhost:3000/insert-item")
+                    window.location.replace("http://localhost:3000/insert-item") // redirect to "menu"
                 }
             }
             else if (response.status === 300) {
+                window.alert(`Incorrect password!`)
+            }
+            else if (response.status === 400) {
                 window.alert(`Sorry! You are NOT in our team.`);
             } 
             else {
