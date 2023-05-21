@@ -1,7 +1,7 @@
 {
-  "name": "ecocar-webapp",
+  "name": "hackdavisbaddies-aggiereusestore",
   "version": "1.0.0",
-  "description": "EcoCAR UC Davis Application for automating on-boarding process",
+  "description": "An web application for Aggies Reuse Store to keep track on inventory",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,10 +10,9 @@
   },
   "keywords": [
     "nodejs",
-    "ecocar",
     "webapp"
   ],
-  "author": "jinlee",
+  "author": "lishen",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
