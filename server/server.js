@@ -13,7 +13,7 @@ app.use(cors());
 
 
 // API ROUTES
-app.use('/inventory', reuseRouter)
+app.use('/insert-into-inventory', reuseRouter)
 app.use('/login-homepage', loginRouter)
 
 const PORT = process.env.PORT || 5000

@@ -8,13 +8,13 @@ const staff = sequelize.define(
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false,
+            allowNull: true,
           },
-          password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-          },
+          // password: {
+          //   type: DataTypes.STRING,
+          //   allowNull: false,
+          // },
     }
 )
 
-module.exports = loginHomePage
+module.exports = staff

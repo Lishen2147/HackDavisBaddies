@@ -2,7 +2,7 @@
 FROM node:18
 
 # Set the working directory to /app/server
-WORKDIR /AgggieReuse/server
+WORKDIR /HackDavisBaddies/server
 
 # Copy the package.json and package-lock.json files to the container
 COPY . ./
