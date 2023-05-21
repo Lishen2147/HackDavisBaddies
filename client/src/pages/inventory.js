@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/inventory.css'
 
 const Inventory = () => {
 
@@ -105,12 +106,108 @@ const Inventory = () => {
     const gridData = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
     return(
-        <div className='content'>
+        <div className='inventory-container'>
             <h4>Inventory</h4>
-            <div className="grid-container">
-                {gridData.map((item, index) => (
-                    <div key={index} className="grid-item">{item}</div>
-                ))}
+            <div className="inventory-content">
+                <div className="filter">
+                <div className='input'>
+                            <label htmlFor='color'>Color</label>
+                            <select
+                                id='color'
+                                name='color'
+                                onChange={handleChange}
+                                value={formData.color}
+                                className={errorBox.color & !formData.color ? 'errorStyle' : ''}
+                            >
+                                <option value=''>-- Select Color --</option>
+                                <option value="red">Red</option>
+                                <option value='blue'>Blue</option>
+                                <option value='green'>Green</option>
+                                <option value='yellow'>Yellow</option>
+                                <option value='orange'>Orange</option>
+                                <option value='purple'>Purple</option>
+                                <option value='pink'>Pink</option>
+                                <option value='cyan'>Cyan</option>
+                                <option value='magenta'>Magenta</option>
+                                <option value='teal'>Teal</option>
+                                <option value='black'>Black</option>
+                                <option value='white'>White</option>
+                                <option value='gray'>Gray</option>
+                            </select>
+                        </div>
+                        <div className='input'>
+                            <label htmlFor='brandName'>Brand</label>
+                            <input
+                                id='brandName'
+                                type='text'
+                                name='brandName'
+                                placeholder="Enter Brand Name"
+                                onChange={handleChange}
+                                value={formData.lastName}
+                                className={errorBox.lastName & !formData.lastName ? 'errorStyle' : ''}
+                            />
+                        </div>
+                        <div className='input'>
+                            <label htmlFor='size'>Size</label>
+                            <select
+                                id='size'
+                                name='size'
+                                onChange={handleChange}
+                                value={formData.size}
+                                className={errorBox.size & !formData.size ? 'errorStyle' : ''}
+                            >
+                                <option value=''>-- Select Size --</option>
+                                <option value="XXS">XXS</option>
+                                <option value='XS'>XS</option>
+                                <option value='S'>S</option>
+                                <option value='M'>M</option>
+                                <option value='L'>L</option>
+                                <option value='XL'>XL</option>
+                                <option value='XXL'>XXL</option>
+                            </select>
+                        </div>
+                        <div className='input'>
+                            <label htmlFor='gender'> Gender </label>
+                            <select
+                                id='gender'
+                                name='gender'
+                                onChange={handleChange}
+                                value={formData.gender}
+                                className={errorBox.gender & !formData.gender ? 'errorStyle' : ''}
+                            >
+                                <option value=''>-- Select Gender --</option>
+                                <option value="menswear">Menswear</option>
+                                <option value='womenswear'>Womenswear</option>
+                                <option value='neutral'>Neutral</option>
+                            </select>
+                        </div>
+                        <div className='input'>
+                            <label htmlFor='category'>Category</label>
+                            <select
+                                id='category'
+                                name='category'
+                                onChange={handleChange}
+                                value={formData.category}
+                                className={errorBox.category & !formData.category ? 'errorStyle' : ''}
+                            >
+                                <option value=''>-- Select Category --</option>
+                                <option value="tops">Tops</option>
+                                <option value='bottoms'>Bottoms</option>
+                                <option value='dresses'>Dresses</option>
+                                <option value='lingerie'>Lingerie</option>
+                                <option value='outerwear'>Outerwear</option>
+                                <option value='accessories'>Accessories</option>
+                                <option value='shoes'>Shoes</option>
+                                <option value='sets'>Sets</option>
+                            </select>
+                        </div>
+                </div>
+                <div className="grid-container">
+                    {gridData.map((item, index) => (
+                        <div key={index} className="grid-item">{item}</div>
+                        
+                    ))}
+                </div>
             </div>
         </div>
     )

@@ -105,7 +105,7 @@ const AccessForm = () => {
     return(
         <div className='content'>
 
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
             <h4>ECOCAR UC Davis Access Request Form</h4>
             <div className='input'>
                 <label htmlFor='requestorEmail'>Requestor Email</label>
@@ -144,7 +144,8 @@ const AccessForm = () => {
                 />
             </div>
             <button className="submit-btn" type='submit'>Submit Form</button>
-        </form>
+        </form> */}
+        <h1>in progress</h1>
         </div>
     )
 }

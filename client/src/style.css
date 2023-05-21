@@ -4,7 +4,7 @@
     --black: #1C1B1A;
     --body-color: #f9f9f9;
     --formInput: #e3e3e3;
-    --background-color: #e17537;
+    /* --background-color: #e17537; */
 
     --font: 'Inter', sans-serif;
 }
@@ -25,7 +25,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 80px;
     padding: 0 2rem;
     background-color: var(--body-color);
@@ -36,11 +36,12 @@ header {
 nav .nav-li{
     margin: 0 2rem;
     text-decoration: none;
-    color: var(--black);
+    color: white;
+    /* font-family: 'sans'; */
 }
 
 nav .nav-li:hover {
-    color: var(--orange);
+    color: gray;
 }
 
 header .nav-btn {
@@ -68,6 +69,42 @@ header .nav-btn {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; 
     transition: 0.6s;
 }
+
+.form_left{
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image_button{
+    display: flex; 
+
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #f07458;
+    color: var(--formInput);
+    font-size: 0.7rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 20px;
+}
+
+.image-box {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+  }
+
 
 h4 {
     font-size: 1.5rem;
@@ -197,6 +234,7 @@ input:focus + .input-icon:after {
 
     nav .nav-li{
         font-size: 1.2rem;
+        color: white;
     }
 
     /* ### Main ### */
